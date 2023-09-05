@@ -21,6 +21,15 @@ spec:
         ports:
           - containerPort: 4455
           - containerPort: 4456
+        volumeMounts:
+          - name: config-dir
+            mountPath: /etc/oathkeeper
+        command: [oathkeeper, serve]
+        args: [-c, /etc/oathkeeper/config.yaml]
+      volumes:
+        - name: config-dir
+          configMap:
+            name: oathkeeper-config
 ---
 apiVersion: v1
 kind: Service
