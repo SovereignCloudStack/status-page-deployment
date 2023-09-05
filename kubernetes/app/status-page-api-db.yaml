@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: scs-status-page-api-db
+  labels:
+    app: scs-status-page-api-db
+spec:
+  selector:
+    matchLabels:
+      app: scs-status-page-api-db
+  serviceName: "database"
+  replicas: 1
+  minReadySeconds: 10
+  template:
+    metadata:
+      labels:
+        app: scs-status-page-api-db
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - image: postgres:15.3
+        name: postgres
+        resources: {}
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: db-data
+          mountPath: /var/lib/postgresql/data
+        env:
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: "db-secrets"
+                key: PASSWORD
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: "db-secrets"
+                key: USER
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: "db-secrets"
+                key: NAME
+  volumeClaimTemplates:
+  - metadata:
+      name: db-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scs-status-page-api-db
+  labels:
+    app: scs-status-page-api-db
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: scs-status-page-api-db

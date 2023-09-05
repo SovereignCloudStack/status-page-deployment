@@ -1,0 +1,6 @@
+resources:
+  - status-page-api-db.yaml
+  - status-page-api.yaml
+  - status-page-dex.yaml
+  - status-page-oathkeeper.yaml
+  - status-page-reverse-proxy.yaml
