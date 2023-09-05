@@ -29,3 +29,31 @@ staticClients:
 ```
 
 The `client_redirect_url` is not the same URL as defined by the GitHub App. It's the URL where Dex should redirect to, after successful authentication.
+
+## Local deployment
+
+### Loadbalancer
+
+`kind` does not provide a way to create a loadbalancer, bound to local addresses. [MetalLB](https://metallb.universe.tf/) is used to provide a configuration for a local address.
+
+[`overlays/develop/metallb.yaml`](overlays/develop/metallb.yaml) defines an `IPAddressPool`. This pool must lay within the network used by kind. Check and change appropriately:
+
+```bash
+$ docker network inspect kind
+[
+  {
+    "Name": "kind"
+    "IPAM": {
+      "Config": [
+        {
+          "Subnet": "172.18.0.0/16",
+        },
+      ]
+    }
+  }
+]
+```
+
+### Persistent Volume Claims
+
+`kind` does not provide a way to create a persisten volume claim either. To be able to satify volume claims, ranchers `local-path-storage` is deployed localy too.
