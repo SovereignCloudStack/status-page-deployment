@@ -8,7 +8,6 @@ web:
 
 # telemetry:
 #   http: 0.0.0.0:5558
-#   enableProfiling: true
 
 frontend:
   issuer: SCS Status Page
