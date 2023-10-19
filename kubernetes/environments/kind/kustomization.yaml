@@ -27,3 +27,5 @@ configMapGenerator:
     files:
       - oathkeeper/config.yaml
       - oathkeeper/rules.yaml
+
+namespace: scs-status-page-development
