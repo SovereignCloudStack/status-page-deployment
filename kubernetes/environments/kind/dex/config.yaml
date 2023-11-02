@@ -6,9 +6,6 @@ storage:
 web:
   http: 0.0.0.0:5556
 
-# telemetry:
-#   http: 0.0.0.0:5558
-
 frontend:
   issuer: SCS Status Page
   theme: dark
@@ -16,13 +13,6 @@ frontend:
 logger:
   level: "debug"
   format: "text"
-
-staticClients:
-  - id: example-app
-    redirectURIs:
-      - 'http://127.0.0.1:5555/callback'
-    name: 'Example App'
-    secret: ZXhhbXBsZS1hcHAtc2VjcmV0
 
 # https://dexidp.io/docs/connectors/github/
 connectors:
