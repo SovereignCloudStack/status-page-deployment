@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: scs-status-page-oathkeeper
+  name: scs-status-page-oathkeeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scs-status-page-oathkeeper
+  template:
+    metadata:
+      labels:
+        app: scs-status-page-oathkeeper
+    spec:
+      containers:
+      - image: oryd/oathkeeper:v0.40.6
+        name: oathkeeper
+        resources: {}
+        ports:
+          - containerPort: 4455
+          - containerPort: 4456
+        volumeMounts:
+          - name: config-dir
+            mountPath: /etc/oathkeeper
+        command: [oathkeeper, serve]
+        args: [-c, /etc/oathkeeper/config.yaml]
+      volumes:
+        - name: config-dir
+          configMap:
+            name: oathkeeper-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scs-status-page-oathkeeper
+  labels:
+    app: scs-status-page-oathkeeper
+spec:
+  selector:
+    app: scs-status-page-oathkeeper
+  ports:
+  - port: 4455
+    name: proxy
+  - port: 4456
+    name: api

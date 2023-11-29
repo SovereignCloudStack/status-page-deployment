@@ -1,0 +1,19 @@
+{
+	auto_https off
+	log {
+		format console
+		level DEBUG
+	}
+}
+
+http://api.test {
+	reverse_proxy scs-status-page-oathkeeper:4455
+}
+
+http://dex.test {
+	reverse_proxy scs-status-page-dex:5556
+}
+
+http://oathkeeper.test {
+	reverse_proxy scs-status-page-oathkeeper:4456
+}

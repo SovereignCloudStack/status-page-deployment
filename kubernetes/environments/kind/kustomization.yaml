@@ -1,0 +1,31 @@
+resources:
+  - ../../app/
+
+secretGenerator:
+  - name: db-secrets
+    envs:
+      - database/database.env
+
+  - name: dex-secrets
+    envs:
+      - dex/dex.env
+
+configMapGenerator:
+  - name: api-config
+    envs:
+      - api/api.env
+
+  - name: dex-config
+    files:
+      - dex/config.yaml
+
+  - name: caddy-config
+    files:
+      - caddy/Caddyfile
+
+  - name: oathkeeper-config
+    files:
+      - oathkeeper/config.yaml
+      - oathkeeper/rules.yaml
+
+namespace: scs-status-page-development
