@@ -2,6 +2,10 @@ resources:
   - ../../app/
 
 secretGenerator:
+  - name: api-secrets
+    envs:
+      - api/database-connection.env
+
   - name: db-secrets
     envs:
       - database/database.env

@@ -15,7 +15,7 @@ spec:
         app: scs-status-page-api
     spec:
       containers:
-      - image: registry.scs.community/status-page/status-page-api@sha256:b863a965af0e2cc8e1f7fc638fa4f1696631323def46d429c288a59f58075716
+      - image: registry.scs.community/status-page/status-page-api@sha256:895aa2b58d6e30f05d80940fad352610bb69816fa2b7b391b77005e5884ff8fa
         name: scs-status-page-api
         resources: {}
         ports:
@@ -23,22 +23,8 @@ spec:
         envFrom:
           - configMapRef:
               name: api-config
-        env:
-          - name: SCS_STATUS_PAGE_DATABASE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: "db-secrets"
-                key: PASSWORD
-          - name: SCS_STATUS_PAGE_DATABASE_USER
-            valueFrom:
-              secretKeyRef:
-                name: "db-secrets"
-                key: USER
-          - name: SCS_STATUS_PAGE_DATABASE_NAME
-            valueFrom:
-              secretKeyRef:
-                name: "db-secrets"
-                key: NAME
+          - secretRef:
+              name: api-secrets
 ---
 apiVersion: v1
 kind: Service

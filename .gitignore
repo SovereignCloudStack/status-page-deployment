@@ -1,1 +1,2 @@
 /kubernetes/environments/kind/dex/dex.env
+/kubernetes/environments/kind/api/database-connection.env
