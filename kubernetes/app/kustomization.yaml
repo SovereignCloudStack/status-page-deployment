@@ -1,4 +1,5 @@
 resources:
+  - namespace.yaml
   - status-page-api-db.yaml
   - status-page-api.yaml
   - status-page-dex.yaml

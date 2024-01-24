@@ -2,5 +2,4 @@ resources:
 - https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml
 - https://raw.githubusercontent.com/metallb/metallb/v0.13.7/config/manifests/metallb-native.yaml
 - metallb.yaml
-- namespace.yaml
 - ../../kubernetes/environments/kind/
