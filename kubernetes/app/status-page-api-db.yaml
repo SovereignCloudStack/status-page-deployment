@@ -26,22 +26,9 @@ spec:
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/postgresql/data
-        env:
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: "db-secrets"
-                key: PASSWORD
-          - name: POSTGRES_USER
-            valueFrom:
-              secretKeyRef:
-                name: "db-secrets"
-                key: USER
-          - name: POSTGRES_DB
-            valueFrom:
-              secretKeyRef:
-                name: "db-secrets"
-                key: NAME
+        envFrom:
+          - secretRef:
+              name: db-secrets
   volumeClaimTemplates:
   - metadata:
       name: db-data

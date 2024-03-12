@@ -22,12 +22,12 @@ spec:
           - containerPort: 5556
         volumeMounts:
           - name: config-dir
-            mountPath: /etc/dex/config
+            mountPath: /etc/dex
         envFrom:
           - secretRef:
               name: dex-secrets
         command: [dex]
-        args: [serve, /etc/dex/config/config.yaml]
+        args: [serve, /etc/dex/config.yaml]
       volumes:
         - name: config-dir
           configMap:
