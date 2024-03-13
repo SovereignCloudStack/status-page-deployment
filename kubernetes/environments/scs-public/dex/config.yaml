@@ -14,6 +14,13 @@ logger:
   level: "info"
   format: "text"
 
+staticClients:
+  - id: $STATUS_PAGE_WEB_OIDC_ID
+    redirectURIs:
+      - $STATUS_PAGE_WEB_OIDC_REDIRECT_URI
+    name: 'Status Page'
+    secret: $STATUS_PAGE_WEB_OIDC_SECRET
+
 # https://dexidp.io/docs/connectors/github/
 connectors:
   - type: github

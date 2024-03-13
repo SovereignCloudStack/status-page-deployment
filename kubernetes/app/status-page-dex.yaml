@@ -26,6 +26,12 @@ spec:
         envFrom:
           - secretRef:
               name: dex-secrets
+          - secretRef:
+              name: web-secrets
+              optional: true
+          - configMapRef:
+              name: web-config
+              optional: true
         command: [dex]
         args: [serve, /etc/dex/config.yaml]
       volumes:
