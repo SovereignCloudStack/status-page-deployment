@@ -1,1 +1,5 @@
 /kubernetes/environments/kind/dex/dex.env
+/kubernetes/environments/scs-public/api/database-connection.env
+/kubernetes/environments/scs-public/database/database.env
+/kubernetes/environments/scs-public/dex/dex.env
+/kubernetes/environments/scs-public/web/web-secrets.env
