@@ -7,13 +7,13 @@
 }
 
 http://api.test {
-	reverse_proxy scs-status-page-oathkeeper:4455
+	reverse_proxy status-page-oathkeeper:4455
 }
 
 http://dex.test {
-	reverse_proxy scs-status-page-dex:5556
+	reverse_proxy status-page-dex:5556
 }
 
 http://oathkeeper.test {
-	reverse_proxy scs-status-page-oathkeeper:4456
+	reverse_proxy status-page-oathkeeper:4456
 }

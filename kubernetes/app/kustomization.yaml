@@ -1,7 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
 resources:
   - namespace.yaml
-  - status-page-api-db.yaml
-  - status-page-api.yaml
-  - status-page-dex.yaml
-  - status-page-oathkeeper.yaml
-  - status-page-reverse-proxy.yaml
+  - api-db.yaml
+  - api.yaml
+  - dex.yaml
+  - oathkeeper.yaml
+  - reverse-proxy.yaml

@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: scs-status-page-api-db
+  name: status-page-api-db
   labels:
-    app: scs-status-page-api-db
+    app: status-page-api-db
 spec:
   selector:
     matchLabels:
-      app: scs-status-page-api-db
+      app: status-page-api-db
   serviceName: "database"
   replicas: 1
   minReadySeconds: 10
   template:
     metadata:
       labels:
-        app: scs-status-page-api-db
+        app: status-page-api-db
     spec:
       terminationGracePeriodSeconds: 10
       containers:
@@ -41,11 +41,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: scs-status-page-api-db
+  name: status-page-api-db
   labels:
-    app: scs-status-page-api-db
+    app: status-page-api-db
 spec:
   ports:
   - port: 5432
   selector:
-    app: scs-status-page-api-db
+    app: status-page-api-db

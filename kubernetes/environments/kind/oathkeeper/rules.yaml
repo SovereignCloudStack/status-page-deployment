@@ -2,7 +2,7 @@
 - id: get-phase-list
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/phases
     methods:
@@ -13,11 +13,11 @@
     handler: allow
   mutators:
     - handler: noop
-    
+
 - id: create-phase-list
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/phases
     methods:
@@ -33,7 +33,7 @@
 - id: get-impact-types
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/impacttypes
     methods:
@@ -48,7 +48,7 @@
 - id: create-impact-type
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/impacttypes
     methods:
@@ -63,7 +63,7 @@
 - id: get-impact-type
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -78,7 +78,7 @@
 - id: modify-impact-type
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -95,7 +95,7 @@
 - id: get-components
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/components
     methods:
@@ -110,7 +110,7 @@
 - id: create-component
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/components
     methods:
@@ -125,7 +125,7 @@
 - id: get-component
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -140,7 +140,7 @@
 - id: modify-component
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -157,7 +157,7 @@
 - id: get-incidents
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents
     methods:
@@ -172,7 +172,7 @@
 - id: create-incident
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents
     methods:
@@ -187,7 +187,7 @@
 - id: get-incident
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -202,7 +202,7 @@
 - id: modify-incident
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -219,7 +219,7 @@
 - id: get-incident-updates
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
     methods:
@@ -234,7 +234,7 @@
 - id: create-incident-update
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
     methods:
@@ -249,7 +249,7 @@
 - id: get-incident-update
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
@@ -264,7 +264,7 @@
 - id: modify-incident-update
   version: 1.0.0
   upstream:
-    url: http://scs-status-page-api:3000
+    url: http://status-page-api:3000
   match:
     url: http://api.test/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
