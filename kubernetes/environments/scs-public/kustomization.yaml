@@ -33,7 +33,7 @@ configMapGenerator:
       - oathkeeper/rules.yaml
 
   - name: web-config
-    files:
+    envs:
       - web/web.env
 
 namespace: status-page
