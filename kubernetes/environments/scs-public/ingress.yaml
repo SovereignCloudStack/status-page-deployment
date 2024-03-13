@@ -1,8 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: status-page-api
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+    ingress.kubernetes.io/proxy-body-size: "0"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/limit-rps: "25"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: status-page
 spec:
+  ingressClassName: nginx
   rules:
   - host: status-idp.k8s.scs.community
     http:
@@ -24,3 +33,8 @@ spec:
               number: 4455
         path: /
         pathType: Prefix
+  tls:
+    - hosts:
+        - status-idp.k8s.scs.community
+        - status.k8s.scs.community
+      secretName: status-page-ingress-tls
