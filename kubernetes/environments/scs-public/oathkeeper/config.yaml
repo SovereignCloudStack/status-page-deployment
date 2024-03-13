@@ -1,0 +1,43 @@
+serve:
+  proxy:
+    port: 4455
+  api:
+    port: 4456
+
+access_rules:
+  repositories:
+    - file:///etc/oathkeeper/rules.yaml
+
+errors:
+  fallback:
+    - json
+  handlers:
+    json:
+      enabled: true
+      config:
+        verbose: true
+    redirect:
+      enabled: true
+      config:
+        to: https://www.ory.sh/docs
+
+mutators:
+  noop:
+    enabled: true
+
+authorizers:
+  allow:
+    enabled: true
+
+authenticators:
+  anonymous:
+    enabled: true
+    config:
+      subject: guest
+  jwt:
+    enabled: true
+    config:
+      jwks_urls:
+        - https://status-idp.k8s.scs.community/keys
+      trusted_issuers:
+        - https://status-idp.k8s.scs.community

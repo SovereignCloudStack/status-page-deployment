@@ -1,0 +1,278 @@
+# phases
+- id: get-phase-list
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/phases
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: create-phase-list
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/phases
+    methods:
+      - POST
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+# impact types
+- id: get-impact-types
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/impacttypes
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: create-impact-type
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/impacttypes
+    methods:
+      - POST
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: get-impact-type
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: modify-impact-type
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - PATCH
+      - DELETE
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+# components
+- id: get-components
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/components
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: create-component
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/components
+    methods:
+      - POST
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: get-component
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: modify-component
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - PATCH
+      - DELETE
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+# incidents
+- id: get-incidents
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: create-incident
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents
+    methods:
+      - POST
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: get-incident
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: modify-incident
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - PATCH
+      - DELETE
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+# incident updates
+- id: get-incident-updates
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: create-incident-update
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
+    methods:
+      - POST
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: get-incident-update
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - GET
+  authenticators:
+    - handler: anonymous
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
+
+- id: modify-incident-update
+  version: 1.0.0
+  upstream:
+    url: http://status-page-api:3000
+  match:
+    url: https://status.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    methods:
+      - PATCH
+      - DELETE
+  authenticators:
+    - handler: jwt
+  authorizer:
+    handler: allow
+  mutators:
+    - handler: noop
