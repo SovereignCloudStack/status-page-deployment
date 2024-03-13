@@ -1,0 +1,29 @@
+issuer: https://status-idp.k8s.scs.community
+
+storage:
+  type: memory
+
+web:
+  http: 0.0.0.0:5556
+
+frontend:
+  issuer: SCS Status Page
+  theme: dark
+
+logger:
+  level: "info"
+  format: "text"
+
+# https://dexidp.io/docs/connectors/github/
+connectors:
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: $GITHUB_CLIENT_ID
+      clientSecret: $GITHUB_CLIENT_SECRET
+      redirectURI: https://status-idp.k8s.scs.community/callback
+      scopes:
+        - user
+        - read:org
+      loadAllGroups: true
