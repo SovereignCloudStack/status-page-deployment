@@ -32,8 +32,7 @@ spec:
           - configMapRef:
               name: web-config
               optional: true
-        command: [dex]
-        args: [serve, /etc/dex/config.yaml]
+        args: [dex, serve, /etc/dex/config.yaml]
       volumes:
         - name: config-dir
           configMap:

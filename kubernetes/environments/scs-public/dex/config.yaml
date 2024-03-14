@@ -15,11 +15,11 @@ logger:
   format: "text"
 
 staticClients:
-  - id: $STATUS_PAGE_WEB_OIDC_ID
+  - id: "{{ .Env.STATUS_PAGE_WEB_OIDC_ID }}"
     redirectURIs:
-      - $STATUS_PAGE_WEB_OIDC_REDIRECT_URI
+      - "{{ .Env.STATUS_PAGE_WEB_OIDC_REDIRECT_URI }}"
     name: 'Status Page'
-    secret: $STATUS_PAGE_WEB_OIDC_SECRET
+    secret: "{{ .Env.STATUS_PAGE_WEB_OIDC_SECRET }}"
 
 # https://dexidp.io/docs/connectors/github/
 connectors:
@@ -27,10 +27,12 @@ connectors:
     id: github
     name: GitHub
     config:
-      clientID: $GITHUB_CLIENT_ID
-      clientSecret: $GITHUB_CLIENT_SECRET
+      clientID: "{{ .Env.GITHUB_CLIENT_ID }}"
+      clientSecret: "{{ .Env.GITHUB_CLIENT_SECRET }}"
       redirectURI: https://status-idp.k8s.scs.community/callback
       scopes:
         - user
         - read:org
       loadAllGroups: true
+      orgs:
+        - name: "{{ .Env.GITHUB_ORG }}"
