@@ -27,6 +27,8 @@ spec:
         - name: db-data
           mountPath: /var/lib/postgresql/data
         envFrom:
+          - configMapRef:
+              name: db-config
           - secretRef:
               name: db-secrets
   volumeClaimTemplates:

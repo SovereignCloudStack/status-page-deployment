@@ -8,15 +8,15 @@ resources:
 secretGenerator:
   - name: api-secrets
     envs:
-      - api/database-connection.env
-      
+      - api/api-secrets.env
+
   - name: db-secrets
     envs:
-      - database/database.env
+      - database/db-secrets.env
 
   - name: dex-secrets
     envs:
-      - dex/dex.env
+      - dex/dex-secrets.env
 
   - name: web-secrets
     envs:
@@ -27,9 +27,15 @@ configMapGenerator:
     envs:
       - api/api.env
 
+  - name: db-config
+    envs:
+      - database/db.env
+
   - name: dex-config
     files:
       - dex/config.yaml
+    envs:
+      - dex/dex.env
 
   - name: oathkeeper-config
     files:

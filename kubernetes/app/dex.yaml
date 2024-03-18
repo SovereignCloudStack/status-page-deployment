@@ -24,14 +24,14 @@ spec:
           - name: config-dir
             mountPath: /etc/dex
         envFrom:
+          - configMapRef:
+              name: dex-config
           - secretRef:
               name: dex-secrets
-          - secretRef:
-              name: web-secrets
-              optional: true
           - configMapRef:
               name: web-config
-              optional: true
+          - secretRef:
+              name: web-secrets
         args: [dex, serve, /etc/dex/config.yaml]
       volumes:
         - name: config-dir

@@ -18,7 +18,7 @@ staticClients:
   - id: "{{ .Env.STATUS_PAGE_WEB_OIDC_ID }}"
     redirectURIs:
       - "{{ .Env.STATUS_PAGE_WEB_OIDC_REDIRECT_URI }}"
-    name: 'Status Page'
+    name: "{{ .Env.CLIENT_NAME }}"
     secret: "{{ .Env.STATUS_PAGE_WEB_OIDC_SECRET }}"
 
 # https://dexidp.io/docs/connectors/github/
