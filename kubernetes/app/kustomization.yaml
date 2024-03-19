@@ -6,4 +6,3 @@ resources:
   - api.yaml
   - dex.yaml
   - oathkeeper.yaml
-  - reverse-proxy.yaml
