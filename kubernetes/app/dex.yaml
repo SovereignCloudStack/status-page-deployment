@@ -36,7 +36,7 @@ spec:
       volumes:
         - name: config-dir
           configMap:
-            name: dex-config
+            name: dex-config-files
 ---
 apiVersion: v1
 kind: Service

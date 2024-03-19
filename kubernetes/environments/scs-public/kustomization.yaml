@@ -32,12 +32,14 @@ configMapGenerator:
       - database/db.env
 
   - name: dex-config
-    files:
-      - dex/config.yaml
     envs:
       - dex/dex.env
 
-  - name: oathkeeper-config
+  - name: dex-config-files
+    files:
+      - dex/config.yaml
+
+  - name: oathkeeper-config-files
     files:
       - oathkeeper/config.yaml
       - oathkeeper/rules.yaml

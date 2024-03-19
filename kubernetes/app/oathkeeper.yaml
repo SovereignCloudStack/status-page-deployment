@@ -29,7 +29,7 @@ spec:
       volumes:
         - name: config-dir
           configMap:
-            name: oathkeeper-config
+            name: oathkeeper-config-files
 ---
 apiVersion: v1
 kind: Service
