@@ -15,7 +15,7 @@ spec:
         app: status-page-dex
     spec:
       containers:
-      - image: dexidp/dex:v2.37.0
+      - image: dexidp/dex:v2.38.0
         name: dex
         resources: {}
         ports:

@@ -15,7 +15,7 @@ spec:
         app: status-page-oathkeeper
     spec:
       containers:
-      - image: oryd/oathkeeper:v0.40.6
+      - image: oryd/oathkeeper:v0.40.7
         name: oathkeeper
         resources: {}
         ports:
