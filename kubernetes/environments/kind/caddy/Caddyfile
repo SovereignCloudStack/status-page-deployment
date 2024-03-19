@@ -6,14 +6,14 @@
 	}
 }
 
-http://api.test {
+http://api.test:8080 {
 	reverse_proxy status-page-oathkeeper:4455
 }
 
-http://dex.test {
+http://dex.test:8080 {
 	reverse_proxy status-page-dex:5556
 }
 
-http://oathkeeper.test {
+http://oathkeeper.test:8080 {
 	reverse_proxy status-page-oathkeeper:4456
 }

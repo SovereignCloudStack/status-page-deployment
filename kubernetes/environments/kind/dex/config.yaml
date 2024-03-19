@@ -1,4 +1,4 @@
-issuer: http://dex.test
+issuer: http://dex.test:8080
 
 storage:
   type: memory
@@ -14,16 +14,25 @@ logger:
   level: "debug"
   format: "text"
 
+staticClients:
+  - id: "{{ .Env.STATUS_PAGE_WEB_OIDC_ID }}"
+    redirectURIs:
+      - "{{ .Env.STATUS_PAGE_WEB_OIDC_REDIRECT_URI }}"
+    name: "{{ .Env.CLIENT_NAME }}"
+    secret: "{{ .Env.STATUS_PAGE_WEB_OIDC_SECRET }}"
+
 # https://dexidp.io/docs/connectors/github/
 connectors:
   - type: github
     id: github
     name: GitHub
     config:
-      clientID: $GITHUB_CLIENT_ID
-      clientSecret: $GITHUB_CLIENT_SECRET
-      redirectURI: http://dex.test/callback
+      clientID: "{{ .Env.GITHUB_CLIENT_ID }}"
+      clientSecret: "{{ .Env.GITHUB_CLIENT_SECRET }}"
+      redirectURI: http://dex.test:8080/callback
       scopes:
         - user
         - read:org
       loadAllGroups: true
+      orgs:
+        - name: "{{ .Env.GITHUB_ORG }}"

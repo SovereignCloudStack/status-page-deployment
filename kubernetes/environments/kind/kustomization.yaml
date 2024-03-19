@@ -7,32 +7,48 @@ resources:
 secretGenerator:
   - name: api-secrets
     envs:
-      - api/database-connection.env
+      - api/api-secrets.env
 
   - name: db-secrets
     envs:
-      - database/database.env
+      - database/db-secrets.env
 
   - name: dex-secrets
     envs:
-      - dex/dex.env
+      - dex/dex-secrets.env
+
+  - name: web-secrets
+    envs:
+      - web/web-secrets.env
 
 configMapGenerator:
   - name: api-config
     envs:
       - api/api.env
 
+  - name: db-config
+    envs:
+      - database/db.env
+
   - name: dex-config
+    envs:
+      - dex/dex.env
+
+  - name: dex-config-files
     files:
       - dex/config.yaml
 
-  - name: caddy-config
+  - name: caddy-config-files
     files:
       - caddy/Caddyfile
 
-  - name: oathkeeper-config
+  - name: oathkeeper-config-files
     files:
       - oathkeeper/config.yaml
       - oathkeeper/rules.yaml
+
+  - name: web-config
+    envs:
+      - web/web.env
 
 namespace: status-page

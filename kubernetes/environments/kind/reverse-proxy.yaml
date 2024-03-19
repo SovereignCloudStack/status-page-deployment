@@ -19,24 +19,11 @@ spec:
         name: caddy
         resources: {}
         ports:
-          - containerPort: 80
+          - containerPort: 8080
         volumeMounts:
           - name: config-dir
             mountPath: /etc/caddy/
       volumes:
         - name: config-dir
           configMap:
-            name: caddy-config
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: status-page-reverse-proxy
-  name: status-page-reverse-proxy
-spec:
-  selector:
-    app: status-page-reverse-proxy
-  ports:
-  - port: 80
-  type: LoadBalancer
+            name: caddy-config-files

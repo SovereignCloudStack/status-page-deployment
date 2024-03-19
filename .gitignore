@@ -1,4 +1,4 @@
-/kubernetes/environments/kind/dex/dex.env
+/kubernetes/environments/kind/dex/dex-secrets.env
 
 /kubernetes/environments/scs-public/api/api-secrets.env
 /kubernetes/environments/scs-public/database/db-secrets.env
