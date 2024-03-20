@@ -59,3 +59,64 @@ Data present in `kubernetes/environments/scs-public` is the deployment specified
 Configure the provided `.env`s. For secrets, the provided examples drop the `-example` part of their file names to be used as `.env` for that secret.
 
 Deploy [`kubernetes/environments/scs-public/kustomization.yaml`](kubernetes/environments/scs-public/kustomization.yaml) to your desired cluster.
+
+## Usage
+
+### Receive auth code
+
+Visit the [openid-configuration](https://status-idp.k8s.scs.community/.well-known/openid-configuration) of the running Dex and build an auth URL from the provided information and your desired paramters.
+
+For example:
+
+```txt
+https://status-idp.k8s.scs.community/auth?client_id=status-page-web&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin&response_type=code&scope=openid+profile+email+offline_access
+```
+
+And visit the generated URL to start the Authorization Code Flow.
+
+After authentication you get redirect to `http://localhost:3000/login?code=<your-code>&state=`
+
+### Exchange token
+
+Copy your code and send it to the token URL.
+
+For example:
+
+```bash
+$ curl -sL \
+-X POST \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'client_id=status-page-web' \
+-d 'client_secret=<your-secret>' \
+-d 'code=<your-code>' \
+-d 'redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin' \
+-d 'grant_type=authorization_code' \
+https://status-idp.k8s.scs.community/token
+
+{
+  "access_token": "<your-access-token>",
+  "token_type": "bearer",
+  "expires_in": 86399,
+  "refresh_token": "<your-refresh-token>",
+  "id_token": "<your-id-token>"
+}
+```
+
+**NOTE**: Be **extreme careful** with your **code** and **client secret** as it represents **credentials**!
+
+### Use API
+
+Copy your id token and use it as bearer token in writing requests.
+
+For example creating a new component:
+
+```bash
+curl -sL \
+-X POST \
+-H 'Authorization: Bearer <your-id-token>' \
+-H 'Content-Type: application/json' \
+-d '{"displayName":"Test-Component"}'\
+https://status.k8s.scs.community/components
+```
+
+**NOTE**: Be **extreme careful** with your **id token** and **access token** as it represents **credentials**!
