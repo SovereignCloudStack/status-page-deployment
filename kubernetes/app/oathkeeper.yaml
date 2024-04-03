@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: scs-status-page-oathkeeper
-  name: scs-status-page-oathkeeper
+    app: status-page-oathkeeper
+  name: status-page-oathkeeper
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: scs-status-page-oathkeeper
+      app: status-page-oathkeeper
   template:
     metadata:
       labels:
-        app: scs-status-page-oathkeeper
+        app: status-page-oathkeeper
     spec:
       containers:
-      - image: oryd/oathkeeper:v0.40.6
+      - image: oryd/oathkeeper:v0.40.7
         name: oathkeeper
         resources: {}
         ports:
@@ -29,17 +29,17 @@ spec:
       volumes:
         - name: config-dir
           configMap:
-            name: oathkeeper-config
+            name: oathkeeper-config-files
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: scs-status-page-oathkeeper
+  name: status-page-oathkeeper
   labels:
-    app: scs-status-page-oathkeeper
+    app: status-page-oathkeeper
 spec:
   selector:
-    app: scs-status-page-oathkeeper
+    app: status-page-oathkeeper
   ports:
   - port: 4455
     name: proxy

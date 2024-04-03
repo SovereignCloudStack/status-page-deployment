@@ -38,6 +38,6 @@ authenticators:
     enabled: true
     config:
       jwks_urls:
-        - http://dex.test:8080/keys
+        - https://status-idp.k8s.scs.community/keys
       trusted_issuers:
-        - http://dex.test:8080
+        - https://status-idp.k8s.scs.community

@@ -6,14 +6,14 @@
 	}
 }
 
-http://api.test {
-	reverse_proxy scs-status-page-oathkeeper:4455
+http://api.test:8080 {
+	reverse_proxy status-page-oathkeeper:4455
 }
 
-http://dex.test {
-	reverse_proxy scs-status-page-dex:5556
+http://dex.test:8080 {
+	reverse_proxy status-page-dex:5556
 }
 
-http://oathkeeper.test {
-	reverse_proxy scs-status-page-oathkeeper:4456
+http://oathkeeper.test:8080 {
+	reverse_proxy status-page-oathkeeper:4456
 }

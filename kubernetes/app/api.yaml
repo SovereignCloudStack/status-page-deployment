@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: scs-status-page-api
-  name: scs-status-page-api
+    app: status-page-api
+  name: status-page-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: scs-status-page-api
+      app: status-page-api
   template:
     metadata:
       labels:
-        app: scs-status-page-api
+        app: status-page-api
     spec:
       containers:
-      - image: registry.scs.community/status-page/status-page-api@sha256:895aa2b58d6e30f05d80940fad352610bb69816fa2b7b391b77005e5884ff8fa
-        name: scs-status-page-api
+      - image: registry.scs.community/status-page/status-page-api@sha256:39ece8255c306870c20aaa39bbabd9cc7774d3af823a1b728d99363a4841abac
+        name: status-page-api
         resources: {}
         ports:
           - containerPort: 3000
@@ -29,11 +29,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: scs-status-page-api
+  name: status-page-api
   labels:
-    app: scs-status-page-api
+    app: status-page-api
 spec:
   selector:
-    app: scs-status-page-api
+    app: status-page-api
   ports:
   - port: 3000

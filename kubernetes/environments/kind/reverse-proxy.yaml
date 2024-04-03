@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: status-page-reverse-proxy
+  name: status-page-reverse-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: status-page-reverse-proxy
+  template:
+    metadata:
+      labels:
+        app: status-page-reverse-proxy
+    spec:
+      containers:
+      - image: caddy:2.6.4
+        name: caddy
+        resources: {}
+        ports:
+          - containerPort: 8080
+        volumeMounts:
+          - name: config-dir
+            mountPath: /etc/caddy/
+      volumes:
+        - name: config-dir
+          configMap:
+            name: caddy-config-files

@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/issuer: letsencrypt
+    ingress.kubernetes.io/proxy-body-size: "0"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/limit-rps: "25"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: status-page
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: status-idp.k8s.scs.community
+    http:
+      paths:
+      - backend:
+          service:
+            name: status-page-dex
+            port:
+              number: 5556
+        path: /
+        pathType: Prefix
+  - host: status.k8s.scs.community
+    http:
+      paths:
+      - backend:
+          service:
+            name: status-page-oathkeeper
+            port:
+              number: 4455
+        path: /
+        pathType: Prefix
+  tls:
+    - hosts:
+        - status-idp.k8s.scs.community
+        - status.k8s.scs.community
+      secretName: status-page-ingress-tls
