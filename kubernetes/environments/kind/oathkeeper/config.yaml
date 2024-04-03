@@ -38,6 +38,6 @@ authenticators:
     enabled: true
     config:
       jwks_urls:
-        - http://dex.test:8080/keys
+        - http://status-page-dex:5556/keys
       trusted_issuers:
         - http://dex.test:8080
