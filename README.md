@@ -12,18 +12,6 @@ kind create cluster --name status-page --wait 3m --config=kind-cluster-config.ya
 make cluster
 ```
 
-### Prerequisites
-
-Please deploy the [`kubernetes/environments/kind/prerequisites/kustomization.yaml`](kubernetes/environments/kind/prerequisites/kustomization.yaml) to set up the local `kind` cluster to work with the deployment.
-
-```bash
-kubectl --context kind-status-page apply -k kubernetes/environments/kind/prerequisites
-```
-
-#### Persistent Volume Claims
-
-`kind` does not provide a way to create a persistent volume for persistent volume claims. To be able to satisfy volume claims, rancher's `local-path-storage` is deployed locally.
-
 ### "Secrets"
 
 All "secrets" shared in `kubernetes/environments/kind` are example values to get a local environment up and running. These values should be substituted by real and secure secrets.
