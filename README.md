@@ -102,7 +102,7 @@ https://status-idp.k8s.scs.community/token
 }
 ```
 
-**NOTE**: Be **extreme careful** with your **code** and **client secret** as it represents **credentials**!
+**NOTE**: Be **extremely careful** with your **code** and **client secret** as they represent **credentials**!
 
 ### Use API
 
@@ -119,4 +119,4 @@ curl -sL \
 https://status.k8s.scs.community/components
 ```
 
-**NOTE**: Be **extreme careful** with your **id token** and **access token** as it represents **credentials**!
+**NOTE**: Be **extremely careful** with your **id token** and **access token** as they represent **credentials**!
