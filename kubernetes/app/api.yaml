@@ -15,7 +15,7 @@ spec:
         app: status-page-api
     spec:
       containers:
-      - image: registry.scs.community/status-page/status-page-api@sha256:39ece8255c306870c20aaa39bbabd9cc7774d3af823a1b728d99363a4841abac
+      - image: registry.scs.community/status-page/status-page-api@sha256:4f21c7f24f76f64432e10af2e99593e4dcbf0368e6434c67d70ecdac5e5bcf73
         name: status-page-api
         resources: {}
         ports:
