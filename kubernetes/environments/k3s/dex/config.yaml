@@ -1,0 +1,38 @@
+issuer: https://idp.213.131.230.142.nip.io
+
+storage:
+  type: memory
+
+web:
+  http: 0.0.0.0:5556
+
+frontend:
+  issuer: SCS Status Page
+  theme: dark
+
+logger:
+  level: "debug"
+  format: "text"
+
+staticClients:
+  - id: "{{ .Env.STATUS_PAGE_WEB_OIDC_ID }}"
+    redirectURIs:
+      - "{{ .Env.STATUS_PAGE_WEB_OIDC_REDIRECT_URI }}"
+    name: "{{ .Env.CLIENT_NAME }}"
+    secret: "{{ .Env.STATUS_PAGE_WEB_OIDC_SECRET }}"
+
+# https://dexidp.io/docs/connectors/github/
+connectors:
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: "{{ .Env.GITHUB_CLIENT_ID }}"
+      clientSecret: "{{ .Env.GITHUB_CLIENT_SECRET }}"
+      redirectURI: https://idp.213.131.230.142.nip.io/callback
+      scopes:
+        - user
+        - read:org
+      loadAllGroups: true
+      orgs:
+        - name: "{{ .Env.GITHUB_ORG }}"
