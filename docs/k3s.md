@@ -71,35 +71,13 @@ Change the URI at `.clusters[0].cluster.server` to the URI you added to the SAN 
 
 Deploy [cert-manager](https://cert-manager.io/docs/installation/kubectl/) on the cluster to automatically receive LetsEncrypt certificates.
 
-See [`issuer.yaml`](issuer.yaml) for settings.
+See `issuer.yaml` for settings.
 
-### Configure statuspage
+### Configure and deploy status page
 
-#### Database
+For in depth configuration see [`configuration.md`](configuration.md).
 
-Set a password for the database at `database/db-secrets.env` and configure the connection string in `api/api-secrets.env`
-
-#### Dex
-
-Set the `issuer` and `redirectURI` at [`dex/config.yaml`](dex/config.yaml) to your domain. Keep in mind, that dex needs it's own domain or subdomain.
-
-Set the GitHub Client Secret at `dex/dex-secrets.env`
-
-#### Oathkeeper
-
-Set your domain or ip in [`oathkeeper/config.yaml`](oathkeeper/config.yaml) in the `authenticators`s `jwks_urls` and `trusted_issuers`.
-
-#### Ingress
-
-In [`k3s/ingress.yaml`](k3s/ingress.yaml) set your domains for Dex and Oathkeeper respectivly. Oathkeeper acts as the auth proxy for the API server. Exposing the API server directly, opens up the possibilty of unsupervised write actions.
-
-#### Issuer
-
-Set the e-mail address in [`issuer.yaml`](issuer.yaml) to your desired e-mail address.
-
-### Deploy status page
-
-Assemble and deploy the k3s deployment.
+Assemble and deploy the [k3s deployment](../kubernetes/environments/k3s/kustomization.yaml).
 
 ```bash
 kubectl kustomize kubernetes/environments/k3s/ > k3s_out.yaml
