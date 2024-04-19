@@ -17,3 +17,7 @@ http://dex.test:8080 {
 http://oathkeeper.test:8080 {
 	reverse_proxy status-page-oathkeeper:4456
 }
+
+http://web.test:8080 {
+	reverse_proxy status-page-web:8080
+}
