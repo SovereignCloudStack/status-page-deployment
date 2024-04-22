@@ -20,11 +20,11 @@ Other Dex related configuration is located in `dex/dex.env`, `web/web-secrets.en
 
 ## Oathkeeper
 
-Set your domain in `oathkeeper/config.yaml` in the `authenticators`s `jwks_urls` and `trusted_issuers` to point towards Dex.
+Set your domain in `oathkeeper/config.yaml` at `authenticators.jwt.config.jwks_urls` and `authenticators.jwt.config.trusted_issuers` to point towards Dex.
 
 ## Web frontend
 
-In `web/web.env` configure the OIDC authentication callback and the API url. The API url must be pointing to the external domain, not the k8s service name.
+In `web/web.env` configure the OIDC authentication callback and the API url. The API URL must be pointing to the external domain, not the K8s service name.
 
 ## Ingress
 

@@ -14,7 +14,7 @@ Setting up k3s to run k8s workloads on the machine.
 
 Allow communication to and from the cluster.
 
-Incomming:
+Incoming:
 
 - 6443 Kubernetes API server
 - 80 HTTP ingress
@@ -59,7 +59,7 @@ curl -sfL https://get.k3s.io | sh -
 
 Deploy services to the cluster, to get the status page running.
 
-If you don't have access to a domain name, consider using [nip.io](https://nip.io/) to use as (sub)domains for Dex and Oathkeepr (API server).
+If you don't have access to a domain name, consider using [nip.io](https://nip.io/) to use as (sub)domains for Dex and Oathkeeper (API server).
 
 ### Kube config
 
