@@ -56,6 +56,8 @@ rect rgba(0,127,255,0.8)
     dex->>idp: actual login
     idp-->>dex: user info
     dex-->>web: id-token
+    web-->>useragent: login successful
+    useragent-->>admin: login successful
 end
 
 rect rgba(64,127,0, 0.8)
@@ -64,7 +66,7 @@ rect rgba(64,127,0, 0.8)
     useragent->>web: operation request
     web->>+oathkeeper: operation request with id-token
     oathkeeper->>dex: id-token verification
-    dex-->>oathkeeper: verificated
+    dex-->>oathkeeper: verified
     oathkeeper->>api: proxy operation request
     api->>db: request data
     db-->>api: data
