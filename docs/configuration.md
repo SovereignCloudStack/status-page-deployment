@@ -32,4 +32,4 @@ In `ingress.yaml` set your domains for Dex, Oathkeeper and the web frontend resp
 
 ## Issuer
 
-Set the e-mail address in [`issuer.yaml`](issuer.yaml) to your desired e-mail address.
+Set the e-mail address in `issuer.yaml` to your desired e-mail address.
