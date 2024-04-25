@@ -4,7 +4,7 @@ A minimal configuration of the status page deployment.
 
 ## API server
 
-Configure the allowed origins via `api/api.env` to include the domain from the web frontend. CORS origins need to include the protocal, too. Example: `https://frontend.<your-domain>`.
+Configure the allowed origins via `api/api.env` to include the domain from the web frontend. CORS origins need to include the protocol, too. Example: `https://frontend.<your-domain>`.
 
 ## Database
 
