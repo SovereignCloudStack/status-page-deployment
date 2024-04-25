@@ -1,0 +1,51 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- issuer.yaml
+- ingress.yaml
+- ../../app
+
+secretGenerator:
+  - name: api-secrets
+    envs:
+      - api/api-secrets.env
+
+  - name: db-secrets
+    envs:
+      - database/db-secrets.env
+
+  - name: dex-secrets
+    envs:
+      - dex/dex-secrets.env
+
+  - name: web-secrets
+    envs:
+      - web/web-secrets.env
+
+configMapGenerator:
+  - name: api-config
+    envs:
+      - api/api.env
+
+  - name: db-config
+    envs:
+      - database/db.env
+
+  - name: dex-config
+    envs:
+      - dex/dex.env
+
+  - name: dex-config-files
+    files:
+      - dex/config.yaml
+
+  - name: oathkeeper-config-files
+    files:
+      - oathkeeper/config.yaml
+      - oathkeeper/rules.yaml
+
+  - name: web-config
+    envs:
+      - web/web.env
+
+namespace: status-page
