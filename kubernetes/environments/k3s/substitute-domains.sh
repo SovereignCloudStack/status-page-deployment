@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-set -euo pipefail
+# This script changes the old domains in the k3s environment configs
+# to the new domains, suplied by domains.env.
+# The script will modify the old values when run, to easily change the domains
+# again, or revert the changes.
 
-old_web_domain=status.213.131.230.142.nip.io
-old_api_domain=api.213.131.230.142.nip.io
-old_dex_domain=idp.213.131.230.142.nip.io
+set -euo pipefail
 
 source domains.env
 
-grep -rl ${old_web_domain} -- ./ | xargs sed -i "s/${old_web_domain}/${WEB_DOMAIN}/g"
-grep -rl ${old_api_domain} -- ./ | xargs sed -i "s/${old_api_domain}/${API_DOMAIN}/g"
-grep -rl ${old_dex_domain} -- ./ | xargs sed -i "s/${old_dex_domain}/${DEX_DOMAIN}/g"
+grep -rl ${OLD_WEB_DOMAIN} -- ./ | xargs sed -i "s/${OLD_WEB_DOMAIN}/${WEB_DOMAIN}/g"
+grep -rl ${OLD_API_DOMAIN} -- ./ | xargs sed -i "s/${OLD_API_DOMAIN}/${API_DOMAIN}/g"
+grep -rl ${OLD_DEX_DOMAIN} -- ./ | xargs sed -i "s/${OLD_DEX_DOMAIN}/${DEX_DOMAIN}/g"
