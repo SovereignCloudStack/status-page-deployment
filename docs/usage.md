@@ -58,7 +58,7 @@ curl -sL \
 -H 'Authorization: Bearer <your-id-token>' \
 -H 'Content-Type: application/json' \
 -d '{"displayName":"Test-Component"}'\
-https://status-apihttp://localhost:3000.k8s.scs.community/components
+https://status-api.k8s.scs.community/components
 ```
 
 **NOTE**: Be **extremely careful** with your **id token** and **access token** as they represent **credentials**!
