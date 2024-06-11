@@ -4,7 +4,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/phases
+    url: https://<your-api-domain>/phases
     methods:
       - GET
   authenticators:
@@ -19,7 +19,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/phases
+    url: https://<your-api-domain>/phases
     methods:
       - POST
   authenticators:
@@ -35,7 +35,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/impacttypes
+    url: https://<your-api-domain>/impacttypes
     methods:
       - GET
   authenticators:
@@ -50,7 +50,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/impacttypes
+    url: https://<your-api-domain>/impacttypes
     methods:
       - POST
   authenticators:
@@ -65,7 +65,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - GET
   authenticators:
@@ -80,7 +80,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - PATCH
       - DELETE
@@ -97,7 +97,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/severities
+    url: https://<your-api-domain>/severities
     methods:
       - GET
   authenticators:
@@ -112,7 +112,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/severities
+    url: https://<your-api-domain>/severities
     methods:
       - POST
   authenticators:
@@ -127,7 +127,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/severities/<[\w-]*>
+    url: https://<your-api-domain>/severities/<[\w-]*>
     methods:
       - GET
   authenticators:
@@ -142,7 +142,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/severities/<[\w-]*>
+    url: https://<your-api-domain>/severities/<[\w-]*>
     methods:
       - PATCH
       - DELETE
@@ -159,7 +159,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/components
+    url: https://<your-api-domain>/components
     methods:
       - GET
   authenticators:
@@ -174,7 +174,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/components
+    url: https://<your-api-domain>/components
     methods:
       - POST
   authenticators:
@@ -189,7 +189,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - GET
   authenticators:
@@ -204,7 +204,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - PATCH
       - DELETE
@@ -221,7 +221,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents
+    url: https://<your-api-domain>/incidents
     methods:
       - GET
   authenticators:
@@ -236,7 +236,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents
+    url: https://<your-api-domain>/incidents
     methods:
       - POST
   authenticators:
@@ -251,7 +251,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - GET
   authenticators:
@@ -266,7 +266,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - PATCH
       - DELETE
@@ -283,7 +283,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
+    url: https://<your-api-domain>/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
     methods:
       - GET
   authenticators:
@@ -298,7 +298,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
+    url: https://<your-api-domain>/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
     methods:
       - POST
   authenticators:
@@ -313,7 +313,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - GET
   authenticators:
@@ -328,7 +328,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://api.213.131.230.142.nip.io/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://<your-api-domain>/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
       - PATCH
       - DELETE
