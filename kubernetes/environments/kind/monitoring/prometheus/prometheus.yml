@@ -24,3 +24,10 @@ scrape_configs:
     static_configs:
       - targets:
           - status-page-dex:5558
+
+  - job_name: "oathkeeper"
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - status-page-oathkeeper:9000
