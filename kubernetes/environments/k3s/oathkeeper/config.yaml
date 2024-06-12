@@ -5,6 +5,7 @@ serve:
     port: 4456
   prometheus:
     port: 9000
+    hide_request_paths: true
 
 access_rules:
   repositories:
