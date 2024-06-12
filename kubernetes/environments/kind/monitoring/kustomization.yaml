@@ -21,6 +21,7 @@ configMapGenerator:
     files:
       - grafana/dashboards/9628_rev7.json
       - grafana/dashboards/10826_rev1.json
+      - grafana/dashboards/Oathkeeper-1718203458929.json
 
   - name: prometheus-config-files
     files:
