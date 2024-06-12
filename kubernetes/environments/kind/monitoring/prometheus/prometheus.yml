@@ -17,3 +17,10 @@ scrape_configs:
     static_configs:
       - targets:
           - status-page-api-db:9187
+
+  - job_name: "dex"
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - status-page-dex:5558
