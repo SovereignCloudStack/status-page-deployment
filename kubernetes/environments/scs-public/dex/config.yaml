@@ -10,6 +10,9 @@ frontend:
   issuer: SCS Status Page
   theme: dark
 
+telemetry:
+  http: 0.0.0.0:5558
+
 logger:
   level: "info"
   format: "text"
