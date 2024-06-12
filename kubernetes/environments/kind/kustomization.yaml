@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../app/
   - reverse-proxy.yaml
+  - monitoring/
 
 secretGenerator:
   - name: api-secrets

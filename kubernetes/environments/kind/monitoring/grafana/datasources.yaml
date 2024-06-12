@@ -1,0 +1,17 @@
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    type: prometheus
+    version: 1
+    editable: true
+    access: proxy
+    url: http://status-page-monitoring-prometheus:9090
+    isDefault: true
+    jsonData:
+      httpMethod: POST
+      manageAlerts: true
+      prometheusType: Prometheus
+      prometheusVersion: 2.52.0
+      cacheLevel: 'High'
+      disableRecordingRules: false
+      incrementalQueryOverlapWindow: 10m
