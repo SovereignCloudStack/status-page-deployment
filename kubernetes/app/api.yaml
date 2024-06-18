@@ -15,11 +15,12 @@ spec:
         app: status-page-api
     spec:
       containers:
-      - image: registry.scs.community/status-page/status-page-api@sha256:4f21c7f24f76f64432e10af2e99593e4dcbf0368e6434c67d70ecdac5e5bcf73
+      - image: registry.scs.community/status-page/status-page-api@sha256:9af80058b0cb020dbfd490b1f8b37818edb60298487bc6e03f302510576dd253
         name: status-page-api
         resources: {}
         ports:
           - containerPort: 3000
+          - containerPort: 9000
         envFrom:
           - configMapRef:
               name: api-config
@@ -37,3 +38,6 @@ spec:
     app: status-page-api
   ports:
   - port: 3000
+    name: api
+  - port: 9000
+    name: metrics
