@@ -1,35 +1,10 @@
-# Overview
+# Admin authentication
 
-## Container view
+As the write operations of the [API server](https://github.com/SovereignCloudStack/status-page-api) are protected by [Oathkeeper](https://www.ory.sh/docs/oathkeeper) and use identities provided by [Dex](https://dexidp.io/) an Administrator is considered to be a person that can authenticate on Dex.
 
-```mermaid
-    C4Container
-    title Container diagram status page
+On the public SCS deployment, these persons are members of the SovereignCloudStack organization.
 
-    Person(user, User, "A user who wants to know about the status.")
-    Person(admin, Admin, "An administrator who can update the status.")
-
-    Container_Boundary(status-page, "Status Page") {
-        Container(web, "Web Frontend", "JavaScript, Angular", "Provides all the status page functionality to persons via their web browser")
-        Container(dex, "Dex IdP", "", "Intermediate IdP to retrieve user data.")
-        Container(api, "API Server", "Go", "Delivers data to the Web Frontend")
-        ContainerDb(api-db, "API Database", "SQL Database", "Stores components, incidents, severities, phases, etc.")
-        Container(oathkeeper, "Oathkeeper", "AuthN, AuthZ", "Authentication proxy for write operations on the API Server.")
-
-        Rel(api, api-db, "Request data")
-        Rel(web, oathkeeper, "Request data", "Unauthenticated read, authenticated write")
-        Rel(oathkeeper, api, "Proxy and protect",)
-        Rel(web, dex, "Authentication")
-        Rel(oathkeeper, dex, "Authenticate user requests")
-    }
-
-    Rel(user, web, "Reads status")
-    Rel(admin, web, "Writes status")
-    Rel(admin, dex, "Authenticate")
-
-```
-
-## Sequence view
+This sequence diagram displays a simplified flow how an administrator authenticates himself with Dex and GitHub, to authorize using the write operations.
 
 ```mermaid
 sequenceDiagram
@@ -75,5 +50,4 @@ rect rgba(64,127,0, 0.8)
     web-->>useragent: data
     useragent-->>admin: presents new data
 end
-
 ```
