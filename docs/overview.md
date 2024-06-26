@@ -13,9 +13,9 @@ The used components are [Oathkeeper](https://www.ory.sh/docs/oathkeeper) and [De
 
 Furthermore the API server needs a running database, for this [PostgreSQL is used](https://github.com/SovereignCloudStack/standards/blob/main/Standards/scs-0401-v1-status-page-reference-implementation-decision.md#database).
 
-Last but not least the the status page is completed by a web front. For this the example implementation from the [`status-page-web` repository](https://github.com/SovereignCloudStack/status-page-web).
+Last but not least the the status page is completed by a web front. For this the reference implementation from the [`status-page-web` repository](https://github.com/SovereignCloudStack/status-page-web).
 
-Some deployments use reverse proxies, ingress controllers or can even implement a gateway-api. These are deployment specific and can be used as the use case requires.
+Some deployments use reverse proxies, ingress controllers or can even use the gateway API. These are deployment specific and can be used as the use case requires.
 
 ### Component overview
 
