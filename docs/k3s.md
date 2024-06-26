@@ -77,7 +77,7 @@ See `issuer.yaml` for settings.
 
 For in depth configuration see [`configuration.md`](configuration.md).
 
-Assemble and deploy the [k3s deployment](../kubernetes/environments/k3s/kustomization.yaml).
+Assemble and deploy the k3s deployment.
 
 ```bash
 kubectl kustomize kubernetes/environments/k3s/ > k3s_out.yaml

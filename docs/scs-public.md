@@ -6,4 +6,4 @@ Configure the provided `.env`s. For secrets, the provided examples drop the `-ex
 
 For in depth configuration see [`configuration.md`](configuration.md).
 
-Deploy [`kubernetes/environments/scs-public/kustomization.yaml`](../kubernetes/environments/scs-public/kustomization.yaml) to your desired cluster.
+Deploy `kubernetes/environments/scs-public/kustomization.yaml` to your desired cluster.

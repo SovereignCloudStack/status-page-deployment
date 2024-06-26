@@ -24,7 +24,7 @@ make cluster
 
 ## Deploy
 
-All needed configurations and secrets are set up in a ready to use kustomization: [`kubernetes/environments/kind/kustomization.yaml`](../kubernetes/environments/kind/kustomization.yaml), just assamble and deploy:
+All needed configurations and secrets are set up in a ready to use kustomization: `kubernetes/environments/kind/kustomization.yaml`, just assamble and deploy:
 
 ```bash
 kubectl --context kind-status-page apply -k kubernetes/environments/kind
