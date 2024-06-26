@@ -1,10 +1,27 @@
 # Overview
 
-## Container view
+The status page needs some components additional to the [API server](https://github.com/SovereignCloudStack/status-page-api) to be usable by operators and customers. As the API server [does not implement any kind of authorization or authentication](https://github.com/SovereignCloudStack/standards/blob/main/Standards/scs-0402-v1-status-page-openapi-spec-decision.md#authentication-and-authorization) some components need to be deployed to protect the write operations of the API from unauthorized access.
+
+## Components
+
+These components are picked as examples and can be exchanged with any technology that is fitting the use case.
+
+The used components are [Oathkeeper](https://www.ory.sh/docs/oathkeeper) and [Dex](https://dexidp.io/) to implement AuthN[^1] and AuthZ[^2]. Oathkeeper is a proxy that handles incoming requests and authorization, while Dex is used as an identity broker, used for authentication, to be used in conjunction with Oathkeeper to secure the API server.
+
+[^1] Authentication
+[^2] Authorization
+
+Furthermore the API server needs a running database, for this [PostgreSQL is used](https://github.com/SovereignCloudStack/standards/blob/main/Standards/scs-0401-v1-status-page-reference-implementation-decision.md#database).
+
+Last but not least the the status page is completed by a web front. For this the reference implementation from the [`status-page-web` repository](https://github.com/SovereignCloudStack/status-page-web).
+
+Some deployments use reverse proxies, ingress controllers or can even use the gateway API. These are deployment specific and can be used as the use case requires.
+
+### Component overview
 
 ```mermaid
     C4Container
-    title Container diagram status page
+    title Component overview status page
 
     Person(user, User, "A user who wants to know about the status.")
     Person(admin, Admin, "An administrator who can update the status.")
@@ -26,54 +43,8 @@
     Rel(user, web, "Reads status")
     Rel(admin, web, "Writes status")
     Rel(admin, dex, "Authenticate")
-
 ```
 
-## Sequence view
+## Deployment repository
 
-```mermaid
-sequenceDiagram
-actor admin as Admin
-participant useragent as User Agent
-participant web as Web Frontend
-participant dex as Dex IdP
-participant idp as Upstream IdP
-participant oathkeeper as Oathkeeper
-participant api as API Server
-participant db as API Database
-
-admin->>useragent: enters status page url
-useragent->>web: request status page
-note over web: simplified
-web-->>useragent: app view
-useragent-->>admin: presents app view
-
-rect rgba(0,127,255,0.8)
-    note right of admin: Login
-    admin->>useragent: enters login flow
-    useragent->>web: login request
-    web->>dex: login request
-    dex->>idp: actual login
-    idp-->>dex: user info
-    dex-->>web: id-token
-    web-->>useragent: login successful
-    useragent-->>admin: login successful
-end
-
-rect rgba(64,127,0, 0.8)
-    note right of admin: Authenticated Request
-    admin->>useragent: enters operation
-    useragent->>web: operation request
-    web->>+oathkeeper: operation request with id-token
-    oathkeeper->>dex: id-token verification
-    dex-->>oathkeeper: verified
-    oathkeeper->>api: proxy operation request
-    api->>db: request data
-    db-->>api: data
-    api-->>oathkeeper: data
-    oathkeeper-->>-web: data
-    web-->>useragent: data
-    useragent-->>admin: presents new data
-end
-
-```
+The [deployment repository](https://github.com/SovereignCloudStack/status-page-deployment) contains a [local development environment using `KinD`](./kind.md), templates for other deployments, in [example using k3s](./k3s.md) and the skeleton of the deployment for the [public SCS cluster](./scs-public.md).
