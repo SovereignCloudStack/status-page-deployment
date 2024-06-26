@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: status-page-monitoring-prometheus
+  name: status-page-monitoring-prometheus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: status-page-monitoring-prometheus
+  template:
+    metadata:
+      labels:
+        app: status-page-monitoring-prometheus
+    spec:
+      containers:
+      - image: docker.io/prom/prometheus:v2.52.0
+        name: grafana
+        resources: {}
+        ports:
+          - containerPort: 9090
+        volumeMounts:
+          - name: config-dir
+            mountPath: /etc/prometheus
+      volumes:
+        - name: config-dir
+          configMap:
+            name: prometheus-config-files
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: status-page-monitoring-prometheus
+  labels:
+    app: status-page-monitoring-prometheus
+spec:
+  ports:
+  - port: 9090
+    name: metrics
+  selector:
+    app: status-page-monitoring-prometheus

@@ -31,6 +31,24 @@ spec:
               name: db-config
           - secretRef:
               name: db-secrets
+      - image: quay.io/prometheuscommunity/postgres-exporter:v0.15.0
+        name: postgres-exporter
+        resources: {}
+        ports:
+        - containerPort: 9187
+        env:
+          - name: DATA_SOURCE_URI
+            value: localhost?sslmode=disable
+          - name: DATA_SOURCE_USER
+            valueFrom:
+              configMapKeyRef:
+                name: db-config
+                key: POSTGRES_USER
+          - name: DATA_SOURCE_PASS
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: POSTGRES_PASSWORD
   volumeClaimTemplates:
   - metadata:
       name: db-data
@@ -49,5 +67,8 @@ metadata:
 spec:
   ports:
   - port: 5432
+    name: database
+  - port: 9187
+    name: metrics
   selector:
     app: status-page-api-db

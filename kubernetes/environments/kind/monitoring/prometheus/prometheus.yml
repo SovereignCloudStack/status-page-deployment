@@ -1,0 +1,41 @@
+# my global config
+global:
+  scrape_interval: 15s
+  evaluation_interval: 1m
+  scrape_timeout: 10s
+
+scrape_configs:
+  - job_name: prometheus
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+        - localhost:9090
+
+  - job_name: postgres
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - status-page-api-db:9187
+
+  - job_name: dex
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - status-page-dex:5558
+
+  - job_name: oathkeeper
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - status-page-oathkeeper:9000
+
+  - job_name: api
+    metrics_path: /metrics
+    scheme: http
+    static_configs:
+      - targets:
+          - status-page-api:9000
