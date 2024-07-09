@@ -170,8 +170,8 @@
     ]
   },
   "time": {
-    "from": "2024-06-13T08:39:38.093Z",
-    "to": "2024-06-13T08:51:47.947Z"
+    "from": "now-3h",
+    "to": "now"
   },
   "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
