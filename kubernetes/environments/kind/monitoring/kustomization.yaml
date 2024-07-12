@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - grafana.yaml
   - prometheus.yaml
+  - ../../../feature/monitoring/
 
 configMapGenerator:
   - name: grafana-config
@@ -16,14 +17,6 @@ configMapGenerator:
   - name: grafana-dashboard-provisioning
     files:
       - grafana/dashboards.yaml
-
-  - name: grafana-dashboards
-    files:
-      - grafana/dashboards/9628_rev7.json
-      - grafana/dashboards/10826_rev1.json
-      - grafana/dashboards/Oathkeeper-1720685662895.json
-      - grafana/dashboards/Dex-1720687900405.json
-      - grafana/dashboards/API-1718710757996.json
 
   - name: prometheus-config-files
     files:
