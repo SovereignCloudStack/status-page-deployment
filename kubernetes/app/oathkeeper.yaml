@@ -21,6 +21,7 @@ spec:
         ports:
           - containerPort: 4455
           - containerPort: 4456
+          - containerPort: 9000
         volumeMounts:
           - name: config-dir
             mountPath: /etc/oathkeeper
@@ -45,3 +46,5 @@ spec:
     name: proxy
   - port: 4456
     name: api
+  - port: 9000
+    name: metrics

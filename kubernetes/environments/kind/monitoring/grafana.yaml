@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: status-page-monitoring-grafana
+  name: status-page-monitoring-grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: status-page-monitoring-grafana
+  template:
+    metadata:
+      labels:
+        app: status-page-monitoring-grafana
+    spec:
+      containers:
+      - image: docker.io/grafana/grafana:11.0.0
+        name: grafana
+        resources: {}
+        ports:
+          - containerPort: 3000
+        envFrom:
+          - configMapRef:
+              name: grafana-config
+          - secretRef:
+              name: grafana-secrets
+        volumeMounts:
+          - name: datasource-provisioning
+            mountPath: /etc/grafana/provisioning/datasources
+          - name: dashboard-provisioning
+            mountPath: /etc/grafana/provisioning/dashboards
+          - name: dashboards
+            mountPath: /etc/dashboards/status-page
+      volumes:
+        - name: datasource-provisioning
+          configMap:
+            name: grafana-datasource-provisioning
+        - name: dashboard-provisioning
+          configMap:
+            name: grafana-dashboard-provisioning
+        - name: dashboards
+          configMap:
+            name: grafana-dashboards
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: status-page-monitoring-grafana
+  labels:
+    app: status-page-monitoring-grafana
+spec:
+  ports:
+  - port: 3000
+    name: web
+  selector:
+    app: status-page-monitoring-grafana

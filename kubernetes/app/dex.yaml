@@ -20,6 +20,7 @@ spec:
         resources: {}
         ports:
           - containerPort: 5556
+          - containerPort: 5558
         volumeMounts:
           - name: config-dir
             mountPath: /etc/dex
@@ -49,3 +50,6 @@ spec:
     app: status-page-dex
   ports:
   - port: 5556
+    name: web
+  - port: 5558
+    name: telemetry
