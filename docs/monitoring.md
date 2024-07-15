@@ -4,7 +4,7 @@ All backend components of the status page can be instrumented to supply metrics.
 
 ## Endpoints
 
-The services expose there metrics endpoints on different ports.
+The services expose their metrics endpoints on different ports.
 
 | Service      | Port (Name)          | Endpoint   |
 | ------------ | -------------------- | ---------- |
