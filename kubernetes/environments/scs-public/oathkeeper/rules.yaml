@@ -21,6 +21,7 @@
   match:
     url: https://status-api.k8s.scs.community/phases
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -52,6 +53,7 @@
   match:
     url: https://status-api.k8s.scs.community/impacttypes
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -82,6 +84,7 @@
   match:
     url: https://status-api.k8s.scs.community/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -114,6 +117,7 @@
   match:
     url: https://status-api.k8s.scs.community/severities
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -137,13 +141,14 @@
   mutators:
     - handler: noop
 
-- id: modify-severity
+- id: modify-impact-type
   version: 1.0.0
   upstream:
     url: http://status-page-api:3000
   match:
     url: https://status-api.k8s.scs.community/severities/<[\w-]*>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -152,7 +157,6 @@
     handler: allow
   mutators:
     - handler: noop
-
 
 # components
 - id: get-components
@@ -177,6 +181,7 @@
   match:
     url: https://status-api.k8s.scs.community/components
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -207,6 +212,7 @@
   match:
     url: https://status-api.k8s.scs.community/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -239,6 +245,7 @@
   match:
     url: https://status-api.k8s.scs.community/incidents
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -269,6 +276,7 @@
   match:
     url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -301,6 +309,7 @@
   match:
     url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -331,6 +340,7 @@
   match:
     url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
