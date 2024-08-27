@@ -28,7 +28,7 @@ In `web/web.env` configure the OIDC authentication callback and the API url. The
 
 ## Ingress
 
-In `ingress.yaml` set your domains for Dex, Oathkeeper and the web frontend respectivly. Oathkeeper acts as the auth proxy for the API server. Exposing the API server directly, opens up the possibilty of unsupervised write actions.
+In `ingress.yaml` set your domains for Dex, Oathkeeper and the web frontend respectively. Oathkeeper acts as the auth proxy for the API server. Exposing the API server directly, opens up the possibility of unsupervised write actions.
 
 ## Issuer
 

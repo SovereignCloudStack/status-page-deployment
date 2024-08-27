@@ -6,12 +6,14 @@ All examples provided use `curl`, the most manual methods and the public SCS rel
 
 ## Receive auth code
 
-Visit the [openid-configuration](https://status-idp.k8s.scs.community/.well-known/openid-configuration) of the running Dex and build an auth URL from the provided information and your desired paramters.
+Visit the [openid-configuration](https://status-idp.k8s.scs.community/.well-known/openid-configuration) of the running Dex and build an auth URL from the provided information and your desired parameters.
 
 For example:
 
+https:///login
+
 ```txt
-https://status-idp.k8s.scs.community/auth?client_id=status-page-web&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Flogin&response_type=code&scope=openid+profile+email+offline_access
+https://status-idp.k8s.scs.community/auth?client_id=status-page-web&redirect_uri=https%3A%2F%2Fstatus.k8s.scs.community%2Flogin&response_type=code&scope=openid+profile+email+offline_access
 ```
 
 And visit the generated URL to start the Authorization Code Flow.

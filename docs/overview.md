@@ -8,8 +8,8 @@ These components are picked as examples and can be exchanged with any technology
 
 The used components are [Oathkeeper](https://www.ory.sh/docs/oathkeeper) and [Dex](https://dexidp.io/) to implement AuthN[^1] and AuthZ[^2]. Oathkeeper is a proxy that handles incoming requests and authorization, while Dex is used as an identity broker, used for authentication, to be used in conjunction with Oathkeeper to secure the API server.
 
-[^1] Authentication
-[^2] Authorization
+[^1]: Authentication
+[^2]: Authorization
 
 Furthermore the API server needs a running database, for this [PostgreSQL is used](https://github.com/SovereignCloudStack/standards/blob/main/Standards/scs-0401-v1-status-page-reference-implementation-decision.md#database).
 
