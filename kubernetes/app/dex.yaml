@@ -17,7 +17,10 @@ spec:
       containers:
       - image: dexidp/dex:v2.38.0
         name: dex
-        resources: {}
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 25m
         ports:
           - containerPort: 5556
           - containerPort: 5558

@@ -20,7 +20,10 @@ spec:
       containers:
       - image: postgres:16.2
         name: postgres
-        resources: {}
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 25m
         ports:
         - containerPort: 5432
         volumeMounts:
@@ -33,7 +36,10 @@ spec:
               name: db-secrets
       - image: quay.io/prometheuscommunity/postgres-exporter:v0.15.0
         name: postgres-exporter
-        resources: {}
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 25m
         ports:
         - containerPort: 9187
         env:

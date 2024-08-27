@@ -17,7 +17,10 @@ spec:
       containers:
       - image: registry.scs.community/status-page/status-page-api@sha256:275511fa9e1b41d6f38a4135e74665d1fbe3734c67fb5a6cbb58df56c4fef25c
         name: status-page-api
-        resources: {}
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 25m
         ports:
           - containerPort: 3000
           - containerPort: 9000
