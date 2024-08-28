@@ -5,6 +5,8 @@ storage:
 
 web:
   http: 0.0.0.0:5556
+  allowedOrigins:
+    - "{{ .Env.DEX_ALLOWED_ORIGINS }}"
 
 frontend:
   issuer: SCS Status Page
@@ -19,10 +21,10 @@ logger:
 
 staticClients:
   - id: "{{ .Env.STATUS_PAGE_WEB_OIDC_ID }}"
+    public: true
     redirectURIs:
       - "{{ .Env.STATUS_PAGE_WEB_OIDC_REDIRECT_URI }}"
     name: "{{ .Env.CLIENT_NAME }}"
-    secret: "{{ .Env.STATUS_PAGE_WEB_OIDC_SECRET }}"
 
 # https://dexidp.io/docs/connectors/github/
 connectors:
