@@ -141,7 +141,7 @@
   mutators:
     - handler: noop
 
-- id: modify-impact-type
+- id: modify-severity
   version: 1.0.0
   upstream:
     url: http://status-page-api:3000
