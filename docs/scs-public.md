@@ -4,6 +4,6 @@ Data present in `kubernetes/environments/scs-public` is the deployment specified
 
 Configure the provided `.env`s. For secrets, the provided examples drop the `-example` part of their file names to be used as `.env` for that secret.
 
-For in depth configuration see [`configuration.md`](configuration.md).
+For in depth configuration see [`configuration`](configuration.md).
 
 Deploy `kubernetes/environments/scs-public/kustomization.yaml` to your desired cluster.

@@ -17,7 +17,10 @@ spec:
       containers:
       - image: registry.scs.community/status-page/status-page-web@sha256:cd3762869f157401b7462da9fdd8501592fc3500b9fa0388cbaeee782a2e581f
         name: status-page-web
-        resources: {}
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 25m
         ports:
           - containerPort: 8080
         envFrom:

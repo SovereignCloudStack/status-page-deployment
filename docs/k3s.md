@@ -36,30 +36,23 @@ ufw allow 80/tcp # http
 ufw allow 443/tcp # https
 ```
 
-### Preinstall config
-
-Configure k3s to include additional SANs to it's TLS certificate.
-
-`/etc/rancher/k3s/config.yaml`
-
-```yaml
-tls-san:
-  - "213.131.230.142"
-```
-
 ### Install
 
-Install k3s directly via install script. It uses the above config file automatically.
+Configure and install k3s directly via install script. See the [k3s server config](https://docs.k3s.io/cli/server).
 
 ```bash
-curl -sfL https://get.k3s.io | sh -
+curl -sfL https://get.k3s.io | sh -s - server \
+--tls-san <your-ip> \
+--tls-san <your-domain>
 ```
+
+Setting the SANs enables the k3s server to be available via your domain and server ip.
 
 ## Deployment
 
 Deploy services to the cluster, to get the status page running.
 
-If you don't have access to a domain name, consider using [nip.io](https://nip.io/) to use as (sub)domains for Dex and Oathkeeper (API server).
+If you don't have access to a domain name, consider using [nip.io](https://nip.io/) to use as (sub)domains for Dex, Oathkeeper (API server) and the web frontend.
 
 ### Kube config
 

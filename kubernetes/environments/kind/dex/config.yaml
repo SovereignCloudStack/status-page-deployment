@@ -1,4 +1,4 @@
-issuer: http://dex.test:8080
+issuer: http://dex.localhost:8080
 
 storage:
   type: memory
@@ -32,7 +32,7 @@ connectors:
     config:
       clientID: "{{ .Env.GITHUB_CLIENT_ID }}"
       clientSecret: "{{ .Env.GITHUB_CLIENT_SECRET }}"
-      redirectURI: http://dex.test:8080/callback
+      redirectURI: http://dex.localhost:8080/callback
       scopes:
         - user
         - read:org

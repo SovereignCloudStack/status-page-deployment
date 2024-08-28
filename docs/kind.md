@@ -2,7 +2,7 @@
 
 `kind` is a tool to quickly setup a local development environment, to test and debug the deployment.
 
-**NOTE**: `kind` is not consindered to be used as any kind of produtive deployment.
+**NOTE**: `kind` is not considered to be used as any kind of productive deployment.
 
 ## "Secrets"
 
@@ -10,7 +10,7 @@ All "secrets" shared in `kubernetes/environments/kind` are example values to get
 
 ## Install
 
-Install `kind` from the [offical website](https://kind.sigs.k8s.io/).
+Install `kind` from the [official website](https://kind.sigs.k8s.io/).
 
 ## Setup
 
@@ -24,7 +24,7 @@ make cluster
 
 ## Deploy
 
-All needed configurations and secrets are set up in a ready to use kustomization: `kubernetes/environments/kind/kustomization.yaml`, just assamble and deploy:
+All needed configurations and secrets, except Dex's GitHub app secrets, are set up in a ready to use kustomization: `kubernetes/environments/kind/kustomization.yaml`, just assemble and deploy:
 
 ```bash
 kubectl --context kind-status-page apply -k kubernetes/environments/kind
@@ -34,7 +34,7 @@ For further configuration see [`configuration.md`](configuration.md).
 
 ## Port forward
 
-The local `kind` deployment uses [Caddy](https://caddyserver.com/) as reverse proxy, instead of `Ingress` and `IngressController`s, to the cluster services. Portforward to the reverse proxy to start using the deployment locally.
+The local `kind` deployment uses [Caddy](https://caddyserver.com/) as reverse proxy, instead of `Ingress` and `IngressController`s, to the cluster services. Port forward to the reverse proxy to start using the deployment locally.
 
 For example:
 

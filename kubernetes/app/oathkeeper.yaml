@@ -17,7 +17,10 @@ spec:
       containers:
       - image: oryd/oathkeeper:v0.40.7
         name: oathkeeper
-        resources: {}
+        resources:
+          requests:
+            memory: 64Mi
+            cpu: 25m
         ports:
           - containerPort: 4455
           - containerPort: 4456
