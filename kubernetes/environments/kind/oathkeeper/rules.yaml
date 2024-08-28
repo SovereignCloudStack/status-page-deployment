@@ -21,6 +21,7 @@
   match:
     url: http://api.localhost:8080/phases
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -52,6 +53,7 @@
   match:
     url: http://api.localhost:8080/impacttypes
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -82,6 +84,7 @@
   match:
     url: http://api.localhost:8080/impacttypes/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -114,6 +117,7 @@
   match:
     url: http://api.localhost:8080/severities
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -144,6 +148,7 @@
   match:
     url: http://api.localhost:8080/severities/<[\w-]*>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -176,6 +181,7 @@
   match:
     url: http://api.localhost:8080/components
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -206,6 +212,7 @@
   match:
     url: http://api.localhost:8080/components/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -238,6 +245,7 @@
   match:
     url: http://api.localhost:8080/incidents
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -268,6 +276,7 @@
   match:
     url: http://api.localhost:8080/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
@@ -300,6 +309,7 @@
   match:
     url: http://api.localhost:8080/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates
     methods:
+      - OPTIONS
       - POST
   authenticators:
     - handler: jwt
@@ -330,6 +340,7 @@
   match:
     url: http://api.localhost:8080/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
     methods:
+      - OPTIONS
       - PATCH
       - DELETE
   authenticators:
