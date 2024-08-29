@@ -3,6 +3,20 @@ serve:
     port: 4455
   api:
     port: 4456
+    cors:
+      enabled: true
+      allowed_origins:
+        - https://<your-web-domain>
+      allow_credentials: true
+      allowed_methods:
+        - POST
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - Authorization
+        - Content-Type
+      exposed_headers:
+        - Content-Type
   prometheus:
     port: 9000
     hide_request_paths: true
