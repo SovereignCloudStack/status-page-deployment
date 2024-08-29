@@ -1,8 +1,6 @@
 serve:
   proxy:
     port: 4455
-  api:
-    port: 4456
     cors:
       enabled: true
       allowed_origins:
@@ -17,6 +15,8 @@ serve:
         - Content-Type
       exposed_headers:
         - Content-Type
+  api:
+    port: 4456
   prometheus:
     port: 9000
     hide_request_paths: true
