@@ -17,6 +17,7 @@ spec:
       containers:
       - image: registry.scs.community/status-page/status-page-api@sha256:bb1c8f04f16471511cf56e7111bd358fba528de1321b8056fe8f18e6cb3a0516
         name: status-page-api
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             memory: 64Mi

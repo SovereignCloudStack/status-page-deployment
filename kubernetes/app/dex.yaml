@@ -17,6 +17,7 @@ spec:
       containers:
       - image: dexidp/dex:v2.38.0
         name: dex
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             memory: 64Mi
