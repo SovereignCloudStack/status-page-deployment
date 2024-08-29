@@ -1,6 +1,21 @@
 serve:
   proxy:
     port: 4455
+    cors:
+      enabled: true
+      allowed_origins:
+        - http://web.localhost:8080
+        - http://localhost:4200
+      allow_credentials: true
+      allowed_methods:
+        - POST
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - Authorization
+        - Content-Type
+      exposed_headers:
+        - Content-Type
   api:
     port: 4456
   prometheus:

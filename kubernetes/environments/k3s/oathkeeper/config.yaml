@@ -1,6 +1,20 @@
 serve:
   proxy:
     port: 4455
+    cors:
+      enabled: true
+      allowed_origins:
+        - https://<your-web-domain>
+      allow_credentials: true
+      allowed_methods:
+        - POST
+        - PATCH
+        - DELETE
+      allowed_headers:
+        - Authorization
+        - Content-Type
+      exposed_headers:
+        - Content-Type
   api:
     port: 4456
   prometheus:

@@ -17,6 +17,7 @@ spec:
       containers:
       - image: oryd/oathkeeper:v0.40.7
         name: oathkeeper
+        imagePullPolicy: IfNotPresent
         resources:
           requests:
             memory: 64Mi
