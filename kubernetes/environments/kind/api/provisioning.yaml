@@ -29,7 +29,8 @@ components:
   - displayname: Zuul
     labels:
       system: gx-scs
-
+  - displayname: Nextcloud
+    labels: {}
 
 phases:
   - name: Scheduled
