@@ -8,6 +8,7 @@ serve:
         - http://localhost:4200
       allow_credentials: true
       allowed_methods:
+        - GET
         - POST
         - PATCH
         - DELETE

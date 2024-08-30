@@ -7,6 +7,7 @@ serve:
         - https://<your-web-domain>
       allow_credentials: true
       allowed_methods:
+        - GET
         - POST
         - PATCH
         - DELETE
