@@ -1,0 +1,53 @@
+impactTypes:
+  - displayname: Performance Degradation
+  - displayname: Connectivity Problems
+  - displayname: Maintenance
+  - displayname: Unknown
+
+components:
+  - displayname: gx-scs
+    labels:
+      provider: plusserver
+      technology: openstack
+  - displayname: UCS
+    labels:
+      role: idp
+  - displayname: Website
+    labels: {}
+  - displayname: Jitsi
+    labels: {}
+  - displayname: Hedgedoc
+    labels: {}
+  - displayname: Moin Cluster
+    labels: {}
+  - displayname: Harbor
+    labels:
+      system: gx-scs
+      idp: ucs
+  - displayname: Grafana
+    labels:
+      app: observability-cluster
+  - displayname: Prometheus
+    labels:
+      app: observability-cluster
+  - displayname: Zuul
+    labels:
+      system: gx-scs
+  - displayname: Nextcloud
+    labels:
+      system: ucs
+
+phases:
+  - name: Scheduled
+  - name: Investigation ongoing
+  - name: Working on it
+  - name: Potential fix deployed
+  - name: Done
+
+severities:
+  - name: operational
+    value: 33
+  - name: limited
+    value: 66
+  - name: broken
+    value: 100
