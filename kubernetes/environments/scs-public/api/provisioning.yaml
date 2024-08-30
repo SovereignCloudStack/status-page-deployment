@@ -9,6 +9,9 @@ components:
     labels:
       provider: plusserver
       technology: openstack
+  - displayname: UCS
+    labels:
+      role: idp
   - displayname: Website
     labels: {}
   - displayname: Jitsi
@@ -20,6 +23,7 @@ components:
   - displayname: Harbor
     labels:
       system: gx-scs
+      idp: ucs
   - displayname: Grafana
     labels:
       app: observability-cluster
@@ -29,7 +33,9 @@ components:
   - displayname: Zuul
     labels:
       system: gx-scs
-
+  - displayname: Nextcloud
+    labels:
+      system: ucs
 
 phases:
   - name: Scheduled
