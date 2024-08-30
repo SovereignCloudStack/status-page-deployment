@@ -10,6 +10,10 @@ secretGenerator:
     envs:
       - api/api-secrets.env
 
+  - name: api-provisioning-files
+    files:
+      - api/provisioning.yaml
+
   - name: db-secrets
     envs:
       - database/db-secrets.env

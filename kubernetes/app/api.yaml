@@ -30,6 +30,13 @@ spec:
               name: api-config
           - secretRef:
               name: api-secrets
+        volumeMounts:
+          - name: provisioning-dir
+            mountPath: /etc/status-page-api
+      volumes:
+        - name: provisioning-dir
+          configMap:
+            name: api-provisioning-files
 ---
 apiVersion: v1
 kind: Service
