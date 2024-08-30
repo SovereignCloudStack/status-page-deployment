@@ -27,6 +27,10 @@ configMapGenerator:
     envs:
       - api/api.env
 
+  - name: api-provisioning-files
+    files:
+      - api/provisioning.yaml
+
   - name: db-config
     envs:
       - database/db.env

@@ -1,0 +1,31 @@
+impactTypes:
+  - displayname: Performance Degradation
+  - displayname: Connectivity Problems
+  - displayname: Maintenance
+  - displayname: Unknown
+
+components:
+  - displayname: Database
+    labels:
+      technology: Postgres
+  - displayname: Website
+    labels:
+      technology: Angular
+  - displayname: API
+    labels:
+      technology: Go
+
+phases:
+  - name: Scheduled
+  - name: Investigation ongoing
+  - name: Working on it
+  - name: Potential fix deployed
+  - name: Done
+
+severities:
+  - name: operational
+    value: 33
+  - name: limited
+    value: 66
+  - name: broken
+    value: 100
