@@ -4,7 +4,7 @@ serve:
     cors:
       enabled: true
       allowed_origins:
-        - https://status.k8s.scs.community/keys
+        - https://status.k8s.scs.community
       allow_credentials: true
       allowed_methods:
         - GET
