@@ -127,7 +127,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://status-api.k8s.scs.community/severities/<[\w-]*>
+    url: https://status-api.k8s.scs.community/severities/<[\w-]+>
     methods:
       - GET
   authenticators:
@@ -142,7 +142,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://status-api.k8s.scs.community/severities/<[\w-]*>
+    url: https://status-api.k8s.scs.community/severities/<[\w-]+>
     methods:
       - PATCH
       - DELETE
@@ -313,7 +313,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<\d+>
     methods:
       - GET
   authenticators:
@@ -328,7 +328,7 @@
   upstream:
     url: http://status-page-api:3000
   match:
-    url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>
+    url: https://status-api.k8s.scs.community/incidents/<[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}>/updates/<\d+>
     methods:
       - PATCH
       - DELETE
