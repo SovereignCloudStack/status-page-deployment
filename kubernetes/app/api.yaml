@@ -15,7 +15,7 @@ spec:
         app: status-page-api
     spec:
       containers:
-      - image: registry.scs.community/status-page/status-page-api@sha256:aced2143f55ca1e2e1037092ee4ef8330a2ef74d982ab4946acbcfb819b79bf9
+      - image: registry.scs.community/status-page/status-page-api:v1.0.0
         name: status-page-api
         imagePullPolicy: IfNotPresent
         resources:
