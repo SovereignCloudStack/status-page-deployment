@@ -28,7 +28,7 @@ forward: check deploy
 
 check:
 	@which kind &>/dev/null || (echo "ERROR: kind not installed"; exit 1)
-	@which kubectl &>/dev/null || (echo "ERROR: kind not installed"; exit 1)
+	@which kubectl &>/dev/null || (echo "ERROR: kubectl not installed"; exit 1)
 .PHONY: check
 
 
