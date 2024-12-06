@@ -8,17 +8,26 @@
 
 All "secrets" shared in `kubernetes/environments/kind` are example values to get a local environment up and running. These values should be substituted by real and secure secrets.
 
-## Install
+## Per Installation  Steps
 
-Install `kind` from the [official website](https://kind.sigs.k8s.io/).
+* Install `kind` from the [official website](https://kind.sigs.k8s.io/).
+* Clone the [status-page-deployment](https://github.com/SovereignCloudStack/status-page-deployment) repository
+  ```
+  git clone git@github.com:SovereignCloudStack/status-page-deployment.git
+  ```
+* Create a [Github OAuth app](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) for testing, see example data:
+  (Note: It is **not critical** to share the data listed here, as this is only a test application which is reachable from localhost)
+  * Name: SCS Gatekeeper Test DEV
+  * Homepage URL: https://scs.community/
+  * Authorization callback URL: http://localhost:8080/
+  * Client ID: `<generated>`
+  * Client Secret: `<generated>`
 
 ## Setup
 
 Create a local `kind` cluster with:
 
 ```bash
-kind create cluster --name status-page --wait 3m --config=kind-cluster-config.yaml
-# or
 make cluster
 ```
 
@@ -26,18 +35,27 @@ make cluster
 
 All needed configurations and secrets, except Dex's GitHub app secrets, are set up in a ready to use kustomization: `kubernetes/environments/kind/kustomization.yaml`, just assemble and deploy:
 
-```bash
-kubectl --context kind-status-page apply -k kubernetes/environments/kind
-```
+* Create Github application
+* Create and configure OAUTH config files
+  ```bash
+  cp kubernetes/environments/kind/dex/dex-secrets-example.env kubernetes/environments/kind/dex/secrets.env
+  vim kubernetes/environments/kind/dex/dex.env # configure GITHUB_CLIENT_ID
+  vim kubernetes/environments/kind/dex/secrets.env # configure GITHUB_CLIENT_SECRET
+  ```
+* Deploy Application
+  ```bash
+  make deploy
+  ```
 
 For further configuration see [`configuration.md`](configuration.md).
 
 ## Port forward
 
-The local `kind` deployment uses [Caddy](https://caddyserver.com/) as reverse proxy, instead of `Ingress` and `IngressController`s, to the cluster services. Port forward to the reverse proxy to start using the deployment locally.
+The local `kind` deployment uses [Caddy](https://caddyserver.com/) as reverse proxy, instead of `Ingress` and `IngressController`s, to the cluster services. 
+Port forward to the reverse proxy to start using the deployment locally.
 
 For example:
 
 ```bash
-kubectl --context kind-status-page -n status-page port-forward pods/status-page-reverse-proxy-78d588d58b-7rdn6 8080:8080
+make forward
 ```

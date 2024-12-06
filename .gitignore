@@ -1,5 +1,3 @@
-/kubernetes/environments/kind/dex/dex-secrets.env
-
 /kubernetes/environments/k3s/api/api-secrets.env
 /kubernetes/environments/k3s/database/db-secrets.env
 /kubernetes/environments/k3s/dex/dex-secrets.env
