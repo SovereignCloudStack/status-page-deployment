@@ -15,7 +15,7 @@ spec:
         app: status-page-web
     spec:
       containers:
-      - image: registry.scs.community/status-page/status-page-web:v1.0.0
+      - image: registry.scs.community/status-page/status-page-web:v1.0.1
         name: status-page-web
         imagePullPolicy: IfNotPresent
         resources:
